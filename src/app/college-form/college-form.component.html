@@ -1,0 +1,169 @@
+<div class="form-area mt-50px">
+  <form [formGroup]="collegeForm" (ngSubmit)="onSubmit($event)">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxFlex="80%" fxLayout="row" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline">
+          <mat-label>College Name</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="College Name"
+            formControlName="name"
+          />
+          <mat-error *ngIf="f.name.invalid && !f.name.errors.required">
+            <span [innerHtml]="f.name.errors.errMsg"></span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>College Code</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="College Code"
+            formControlName="code"
+          />
+          <mat-error *ngIf="f.code.invalid && !f.code.errors.required">
+            <span [innerHtml]="f.code.errors.errMsg"></span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>College Location</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Location"
+            formControlName="location"
+          />
+          <mat-error *ngIf="f.location.invalid && !f.location.errors.required">
+            <span [innerHtml]="f.location.errors.errMsg"></span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>College Country</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="country"
+            formControlName="country"
+          />
+          <mat-error *ngIf="f.country.invalid && !f.country.errors.required">
+            <span [innerHtml]="f.country.errors.errMsg"></span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="10%" fxLayoutAlign="center center">
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          (click)="onAddStudent()"
+        >
+          Add Student
+        </button>
+      </div>
+    </div>
+    <mat-list role="list">
+      <div fxLayout="column" fxLayoutGap="30px">
+        <mat-list-item
+          role="listitem"
+          *ngFor="let student of s.controls; let i = index"
+        >
+          <div [formGroup]="student">
+            <div
+              fxFlex="100%"
+              fxLayout="row"
+              fxLayoutAlign="space-around center"
+              fxLayoutGap="30px"
+              class="px-10"
+            >
+              <mat-form-field appearance="outline">
+                <mat-label>Student Name</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Student Name"
+                  formControlName="name"
+                />
+                <!-- <mat-error *ngIf="student.controls.name.invalid && !student.controls.name.errors.required">
+                <span [innerHtml]="student.controls.name.errors.errMsg"></span>
+              </mat-error> -->
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Student RollNo</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Student RollNo"
+                  formControlName="rollId"
+                />
+                <!-- <mat-error *ngIf="student.controls.rollId.invalid && !student.controls.rollId.errors.required">
+                <span [innerHtml]="student.controls.rollId.errors.errMsg"></span>
+              </mat-error> -->
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Student Branch</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Branch"
+                  formControlName="branch"
+                />
+                <!-- <mat-error *ngIf="student.controls.branch.invalid && !student.controls.branch.errors.required">
+                <span [innerHtml]="student.controls.branch.errors.errMsg"></span>
+              </mat-error> -->
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Student Section</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Section"
+                  formControlName="section"
+                />
+                <!-- <mat-error
+                *ngIf="student.controls.section.invalid && !student.controls.section.errors.required"
+              >
+                <span [innerHtml]="student.controls.section.errors.errMsg"></span>
+              </mat-error> -->
+              </mat-form-field>
+
+              <button
+                type="button"
+                mat-mini-fab
+                color="accent"
+                (click)="openDialog(i)"
+              >
+                <mat-icon>attach_file</mat-icon>
+              </button>
+              <button
+                type="button"
+                mat-mini-fab
+                color="warn"
+                (click)="removeStudent(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+      </div>
+    </mat-list>
+
+    <div
+      fxLayout="row"
+      fxLayoutAlign="end center"
+      fxLayoutGap="30px"
+      class="mt-20px"
+    >
+      <button type="reset" mat-raised-button (click)="onReset()">Reset</button>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="!collegeForm.valid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

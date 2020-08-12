@@ -1,0 +1,21 @@
+.h-90p {
+  box-sizing: border-box;
+  height: 90%;
+}
+
+.mt-50px {
+  margin-top: 50px;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+.rounded-img {
+  border: 1px solid #eeee;
+  border-radius: 50%;
+}

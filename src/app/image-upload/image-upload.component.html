@@ -1,0 +1,42 @@
+<div fxLayout="column" fxLayoutGap="10px">
+  <img
+    [src]="data.profileUrl"
+    height="150px"
+    *ngIf="isImageUploaded"
+    class="rounded"
+  />
+  <div
+    class="img-sample"
+    *ngIf="!isImageUploaded"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <button
+      type="button"
+      mat-mini-fab
+      color="primary"
+      aria-label="Example icon button with a heart icon"
+      (click)="fileInput.click()"
+    >
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
+  <input
+    style="display: none;"
+    type="file"
+    (change)="onChangeFile($event)"
+    #fileInput
+  />
+  <small class="error-msg" [innerHTML]="data.error"></small>
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button
+      mat-button
+      [disabled]="onError"
+      [mat-dialog-close]="data"
+      cdkFocusInitial
+    >
+      Ok
+    </button>
+  </div>
+</div>

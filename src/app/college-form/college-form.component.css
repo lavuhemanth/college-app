@@ -1,0 +1,21 @@
+.form-area {
+  background-color: #eeee;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.mb-10px {
+  margin-bottom: 10px;
+}
+.px-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.mt-50px {
+  margin-top: 50px;
+}
+
+.mt-20px {
+  margin-top: 20px;
+}
