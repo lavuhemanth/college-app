@@ -104,6 +104,7 @@ export class CollegeFormComponent implements OnInit {
           this.spinner.changeStatus(false, false);
           this.router.navigate(["/"]);
         });
+      return;
     }
     this.todoService.create(this.collegeForm.value).subscribe((response) => {
       this.spinner.changeStatus(false, false);
