@@ -115,13 +115,11 @@ export class CollegeFormComponent implements OnInit {
     this.spinner.changeStatus(true, true);
     this.todoService.getTask(id).subscribe(({ task }) => {
       this.spinner.changeStatus(false, false);
-      delete task["_id"];
+      // delete task["_id"];
       this.collegeFormData = task;
       this.collegeFormData.students.forEach((student) => {
-        delete student["_id"];
         this.onAddStudent();
       });
-      debugger;
       this.collegeForm.patchValue({
         ...this.collegeFormData,
       });

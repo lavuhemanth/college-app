@@ -1,7 +1,13 @@
 <div class="form-area mt-50px">
   <form [formGroup]="collegeForm" (ngSubmit)="onSubmit($event)">
     <div fxLayout="row" fxLayoutAlign="space-between center">
-      <div fxFlex="80%" fxLayout="row" fxLayoutAlign="space-around center">
+      <div
+        fxFlex="80%"
+        fxLayout="row"
+        fxLayout.md="column"
+        fxLayout.sm="column"
+        fxLayoutAlign="space-around center"
+      >
         <mat-form-field appearance="outline">
           <mat-label>College Name</mat-label>
           <input
@@ -51,7 +57,7 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div fxFlex="10%" fxLayoutAlign="center center">
+      <div fxFlex="20%" fxLayoutAlign="center center">
         <button
           type="button"
           mat-raised-button

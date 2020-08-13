@@ -9,11 +9,13 @@ import {
 } from "@angular/router";
 import { SpinnerService } from "./spinner.service";
 import { Subscription } from "rxjs";
+import { fade } from "./animations";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
+  animations: [fade],
 })
 export class AppComponent implements OnInit, OnDestroy {
   isSpinnerActive = false;

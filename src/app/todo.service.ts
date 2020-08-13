@@ -57,7 +57,6 @@ export class TodoService {
 
   update(id, taskObject: any) {
     this.requestUrl = `${this.baseurl}/api/task/${id}`;
-
     return this.http.put<any>(this.requestUrl, taskObject, httpOptions).pipe(
       map(
         (response) => {
